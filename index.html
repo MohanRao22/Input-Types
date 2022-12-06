@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Modes in HTML</title>
     <style>
-        body{
+        body {
             display: flex;
             flex-wrap: wrap;
             background-image: repeating-conic-gradient(rgb(220, 218, 218) 10%, rgb(170, 170, 148) 20%);
@@ -17,52 +17,167 @@
             align-items: center;
             height: 100vh;
         }
-        .input-blk p{
+
+        .input-blk p {
             font-weight: 900;
             letter-spacing: 1px;
             font-size: 17px;
             color: rgb(250, 2, 2);
+            background: black;
+            color: white;
+            padding: 7px;
+            opacity: 0.5;
+            border-radius: 5px;
         }
-        .result-img{
+
+        .result-img {
             height: 200px;
             width: 100px;
         }
-        .image{
+
+        .image {
             text-align: center;
             margin-top: 15px;
+            display: none;
+        }
+
+        input {
+            width: 100%;
+            height: 25px;
+            border: none;
+            box-shadow: 1px 1px 6px black;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 8px;
+            border-radius: 10px;
+            background: #18ff18;
+            border: none;
+            color: white;
+            font-weight: 900;
+            font-size: 15px;
         }
     </style>
 </head>
 
-<body >
+<body>
     <div class="input-blk">
         <p>1. inputmode="numeric"</p>
         <input type="text" inputmode="numeric" />
-       <div class="image">
-        <img src="./Images/numeric.jpg" alt="result"  class="result-img"/>
-       </div> 
+        <div class="click-here">
+            <button type="button" id="see-result1">Output</button>
+        </div>
+        <div class="image image1">
+            <img src="./Images/numeric.jpg" alt="result" class="result-img" />
+        </div>
     </div>
     <div class="input-blk">
         <p>2. inputmode="tel"</p>
         <input type="text" inputmode="tel" />
-        <div class="image">
-        <img src="./Images/tel.jpg" alt="result" class="result-img" />
+        <div class="click-here">
+            <button type="button" id="see-result2">Output</button>
+        </div>
+        <div class="image image2">
+            <img src="./Images/tel.jpg" alt="result" class="result-img" />
         </div>
     </div>
     <div class="input-blk">
         <p>3. inputmode="search"</p>
         <input type="text" inputmode="search" />
-        <div class="image">
-        <img src="./Images/search.jpg" alt="result" class="result-img" />
+        <div class="click-here">
+            <button type="button" id="see-result3">Output</button>
+        </div>
+        <div class="image image3">
+            <img src="./Images/search.jpg" alt="result" class="result-img" />
         </div>
     </div>
     <div class="input-blk">
         <p>4. inputmode="url"</p>
         <input type="text" inputmode="url" />
-        <div class="image">
-        <img src="./Images/url.jpg" alt="result" class="result-img" />
+        <div class="click-here">
+            <button type="button" id="see-result4">Output</button>
+        </div>
+        <div class="image image4">
+            <img src="./Images/url.jpg" alt="result" class="result-img" />
         </div>
     </div>
+
+    <script>
+        let result_op1 = document.querySelector(".image1");
+        let result_op2 = document.querySelector(".image2");
+        let result_op3 = document.querySelector(".image3");
+        let result_op4 = document.querySelector(".image4");
+        let click_btn1 = document.getElementById("see-result1");
+        let click_btn2 = document.getElementById("see-result2");
+        let click_btn3 = document.getElementById("see-result3");
+        let click_btn4 = document.getElementById("see-result4");
+        let pres_btn1 = false;
+        let pres_btn2 = false;
+        let pres_btn3 = false;
+        let pres_btn4 = false;
+
+        click_btn1.addEventListener("click", () => {
+            if (pres_btn1 == false) {
+
+                result_op1.style.display = "block";
+                click_btn1.innerHTML = "Hide Output"
+                pres_btn1 = true;
+            } else {
+
+                result_op1.style.display = "none";
+                click_btn1.innerHTML = "See Output"
+                pres_btn1 = false;
+            }
+
+        });
+
+        click_btn2.addEventListener("click", () => {
+            if (pres_btn2 == false) {
+
+                result_op2.style.display = "block";
+                click_btn2.innerHTML = "Hide Output"
+                pres_btn2 = true;
+            } else {
+
+                result_op2.style.display = "none";
+                click_btn2.innerHTML = "See Output"
+                pres_btn2 = false;
+            }
+
+        });
+
+        click_btn3.addEventListener("click", () => {
+            if (pres_btn3 == false) {
+
+                result_op3.style.display = "block";
+                click_btn3.innerHTML = "Hide Output"
+                pres_btn3 = true;
+            } else {
+
+                result_op3.style.display = "none";
+                click_btn3.innerHTML = "See Output"
+                pres_btn3 = false;
+            }
+
+        });
+
+        click_btn4.addEventListener("click", () => {
+            if (pres_btn4 == false) {
+
+                result_op4.style.display = "block";
+                click_btn4.innerHTML = "Hide Output"
+                pres_btn4 = true;
+            } else {
+
+                result_op4.style.display = "none";
+                click_btn4.innerHTML = "See Output"
+                pres_btn4 = false;
+            }
+
+        });
+    </script>
 </body>
 
 </html>
